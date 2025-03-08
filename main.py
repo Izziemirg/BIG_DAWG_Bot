@@ -1,4 +1,4 @@
-from typing import Final
+from typing import Final, Optional
 import os
 from dotenv import load_dotenv
 from discord import Intents, Client, Message
@@ -10,17 +10,15 @@ TOKEN: Final[str] = os.getenv('DISCORD_TOKEN')
 
 # STEP 1: BOT SETUP
 intents: Intents = Intents.default()
-intents.message_content = True # NOQA
+intents.message_content = True  # NOQA
 client: Client = Client(intents=intents)
 
-# RESPOND TO SPECIFIC USER
-TARGET_USERNAME = "arcvade"  # Discord username
-TARGET_DISPLAY_NAME = 'Jose "The Dumpy"'  # Server alias
+target_user: Optional[str] = None  # Stores the current target username
 
-#STEP 2: MESSAGE FUNCTIONALITY
+# STEP 2: MESSAGE FUNCTIONALITY
 async def send_message(message: Message, user_message: str) -> None:
     if not user_message:
-        print('(Message was empty because intents were not enabled probably)')
+        print('(Big Dawg is asleep)')
         return
 
     if is_private := user_message[0] == "?":
@@ -37,26 +35,30 @@ async def send_message(message: Message, user_message: str) -> None:
 async def on_ready() -> None:
     print(f'{client.user} is now running!')
 
-#STEP 4: HANDLING INCOMING MESSAGES
+# STEP 4: HANDLING INCOMING MESSAGES
 @client.event
 async def on_message(message: Message) -> None:
+    global target_user
+    
     if message.author == client.user:
         return
 
     username: str = str(message.author)
-    user_message: str = message.content
-    channel: str = str(message.channel)
+    user_message: str = message.content.strip()
+    
+    # If bot is mentioned and "get him" is in the message, set the target
+    if client.user.mentioned_in(message) and "get him" in user_message.lower():
+        target_user = username
+        await message.channel.send(f"I'm on yo ass {username}")
+        return
 
-    print(f'[{message.channel}] {TARGET_USERNAME} ({TARGET_DISPLAY_NAME}): "{message.content}"')
-
-    # Check if the user is the target user
-    if username == TARGET_USERNAME or display_name == TARGET_DISPLAY_NAME:
+    # Only respond to the target user
+    if username == target_user:
         await send_message(message, user_message)
 
-
-#STEP 5: MAIN ENTRY POINT
+# STEP 5: MAIN ENTRY POINT
 def main() -> None:
-    client.run(token=TOKEN)
+    client.run(TOKEN)
 
 if __name__ == '__main__':
     main()
