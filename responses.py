@@ -60,12 +60,28 @@ user_responses = {
         "Used car salesman vibes",
         "All I know is NASA is cooked if you work for them",
         "The Nicholas Pepe of gaming",
-        "Sand monkey vibes"
+        "Sand monkey vibes",
+        "Call the cops"
     ],
     "noonxo": [
         "You like Egyptians too much for me to trust you",
         "Very Indian of you man",
-        "FOR PAKISTANNNNN"
+        "FOR PAKISTANNNNN",
+        "Good afternoon, Mr. Noon",
+        "I will give my life for PAKISTANNNNNNN",
+        "Kutti",
+        "Remember when Mohammad lost to Evan in 1v1?",
+        "I can't talk too crazy since you went to Umrah",
+        "I'll buy you a vape if you wrestle Jose rn",
+        "Only person I know to be voluntarily addicted to cigarettes",
+        "Inshallah, someone will boot him from the chat",
+        "KDs biggest eater",
+        "OKC has finally beaten the curse you brought to them by working for them",
+        "Talbia, please take his phone away",
+        "Remember when Mohammad was a hooper?"
+        "Another one of Evans indentured servants",
+        "Plz get some furniture",
+        "Inshallah, you will cease to live like a serial killer"
     ],
     "zsheisty2498": [
         "You ain't a thug",
@@ -74,11 +90,19 @@ user_responses = {
         "You movin booky",
         "Most productive worker the US government has",
         "Golf ball bully",
-        "Athletic af for no reason"
+        "Athletic af for no reason",
+        "Our tax dollars hard at work",
+        "Pilgram town goat",
+        "Remember when you gave that grandma a lap dance?",
+        "Mid-range king",
+        "Keep smackin them thangs",
+        "My boy loveeeees massages at the club huh?",
+        "Imma tell Robert you're out here talking like that"
     ],
     "samie_mirghani": [
         "Samie out here thinking he’s the main character!",
-        "Mirghani you ain't shit"
+        "Mirghani you ain't shit",
+        "Play off him!"
     ]
 }
 
