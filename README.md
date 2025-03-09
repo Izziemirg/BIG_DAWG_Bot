@@ -38,7 +38,7 @@ python main.py
 
 Configuration:
 
-The bot listens for "get em" to set a target user. The Target will whoever you @ in the message.
+The bot listens for "get em" to set a target user. The Target will be whatever username you @ in the message.
 It responds only to messages from the target user. It will ignore other user responses until you specify another user to respond to.
 Responses are selected randomly from responses.py. You should edit these responses to personalize them.
 To send private messages, prefix the message with ?.
