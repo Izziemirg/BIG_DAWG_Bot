@@ -64,6 +64,16 @@ async def on_message(message: Message) -> None:
             await message.channel.send(f"I'm on yo ass {target_display_name}")
         return
 
+    # Kill switch: If bot is mentioned and "stand down" is in the message, deactivate targeting
+    if client.user.mentioned_in(message) and " chill out" in user_message.lower():
+        if target_user:
+            await message.channel.send(f"Alright, I’ll leave {target_display_name} alone.")
+            target_user = None
+            target_display_name = None
+        else:
+            await message.channel.send("I'm not targeting anyone right now.")
+        return
+
     print(f'[{message.channel}] {target_user} ({target_display_name}): "{message.content}"')
 
     # Only respond to the target user (checking both username and display name)
