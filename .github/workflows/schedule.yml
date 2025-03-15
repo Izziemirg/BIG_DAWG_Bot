@@ -1,0 +1,23 @@
+name: Run Discord Bot on Schedule
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Start at 6 AM UTC (Adjust for your timezone)
+    - cron: '0 3 * * *'  # Stop at 3 AM UTC (Adjust for your timezone)
+
+jobs:
+  manage-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Start Bot at 6 AM
+        if: github.event.schedule == '0 6 * * *'
+        run: |
+          curl -X POST "https://backboard.railway.app/deploy/YOUR_RAILWAY_PROJECT_ID"
+
+      - name: Stop Bot at 3 AM
+        if: github.event.schedule == '0 3 * * *'
+        run: |
+          railway down
