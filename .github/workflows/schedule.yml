@@ -15,7 +15,7 @@ jobs:
       - name: Start Bot at 6 AM
         if: github.event.schedule == '0 6 * * *'
         run: |
-          curl -X POST "https://backboard.railway.app/deploy/YOUR_RAILWAY_PROJECT_ID"
+          curl -X POST "https://railway.com/project/f8840b44-9b26-4c28-9154-b00a99468940/service/a4fb2edb-fe5f-4bf3-9ee9-2d32b245e5ea?environmentId=d0f64846-9316-466a-80e9-b9818381bb24"
 
       - name: Stop Bot at 3 AM
         if: github.event.schedule == '0 3 * * *'
